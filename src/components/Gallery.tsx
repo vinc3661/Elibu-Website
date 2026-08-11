@@ -1,9 +1,15 @@
-const images = Object.values(
-  import.meta.glob("../assets/Gallery/*.{jpg,jpeg,png,webp}", {
-    eager: true,
-    query: "?url",
-    import: "default",
-  })
+import {motion} from "framer-motion";
+
+const images = import.meta.glob(
+"../assets/Gallery/*.{jpg,jpeg,npg,webp}",
+{
+eager:true,
+query:"?url",
+import:"default",
+
+
+}
+
 );
 
 export default function Gallery() {
@@ -25,14 +31,36 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Elibu collection ${index + 1}`}
-              className="h-72 w-full rounded-2xl object-cover"
-            />
-          ))}
+          
+       {Object.entries(images).map(([path,image])=>(
+           <motion.div
+           key={path}
+           initial={{opacity:0, y:20}}
+           whileInView={{opacity:1, y:0}}
+            transition={{duration:1.2}}
+            viewport={{once:true}}
+            className="over-flow-hidden rounded-2xl"
+
+          >
+            <motion.img
+            src={image}
+            alt="Elibu Home Decorates"
+            whileHover={{scale:1.05}}
+            transition={{duration:0.3}}
+            className="h-72 w-full object-cover"
+            
+            
+            
+            
+            >
+                 </motion.img>
+            </motion.div>
+
+
+       ))}
+
+
+          
         </div>
       </div>
     </section>

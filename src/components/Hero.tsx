@@ -150,7 +150,7 @@ export default function Hero() {
               duration: 0.8,
               delay: 0.7,
             }}
-            className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <motion.a
               href="#gallery"
