@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Aurora from "./Aurora";
-import Navbar from "./Navbar";
 
 import img1 from "../assets/img1.jpg";
 import img2 from "../assets/img2.jpg";
@@ -44,7 +43,7 @@ export default function Hero() {
       className="relative min-h-screen overflow-hidden bg-black"
     >
       
-      <Navbar />
+      
 
 
       <AnimatePresence mode="wait">
@@ -181,7 +180,7 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* Image Indicators */}
+          
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

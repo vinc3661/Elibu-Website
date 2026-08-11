@@ -1,8 +1,14 @@
 import Hero from "./components/Hero";
- export default function App() { 
+import Navbar from "./components/Navbar";
+import Gallery from "./components/Gallery";
+export default function App() {
   return (
-     <main>
-       <Hero /> 
+      <main>
+       <Hero />
+       <Navbar />
+       
+       <Gallery />
        </main>
+
         );
        }
