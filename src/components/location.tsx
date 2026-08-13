@@ -1,54 +1,53 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+
+const latitude = -1.203181998774037;
+const longitude = 36.83846272329197;
 
 export default function Location() {
-  const [locationData, setLocationData] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchLocation = async () => {
-      try {
-        
-        const response = await fetch("https://api.example.com/location");
-        if (!response.ok) {
-          throw new Error("Failed to load location");
-        }
-        const data = await response.json();
-        setLocationData(data);
-      } catch (err) {
-        console.error("Failed to load location:", err);
-        setError("Network Error");
-      }
-    };
-
-    fetchLocation();
-  }, []);
-
   return (
-    <section id="location" className="min-h-screen px-20 py-6">
-      <div className="grid md:grid-cols-1 items-center gap-8">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9 }}
-          whileInView={{ scale: 1.05 }}
-        >
-          {error && <p className="text-red-500">{error}</p>}
-          {locationData ? (
-            <p>Location data loaded</p>
-          ) : (
-            <p>Loading location...</p>
-          )}
-        </motion.div>
+    <section
+      id="location"
+      className="min-h-screen px-4 py-20 sm:px-6 lg:px-8"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 text-center">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-emerald-600">
+            Find Us
+          </p>
+
+          <h2 className="mt-3 text-4xl font-bold text-emerald-950 sm:text-5xl">
+            Visit Elibu
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+            Find us at our floral shop and come discover beautiful
+            flowers, plants and trees.
+          </p>
+        </div>
+
+        <div className="overflow-hidden rounded-3xl shadow-lg">
+          <MapContainer
+            center={[latitude, longitude]}
+            zoom={16}
+            scrollWheelZoom={false}
+            className="h-[350px] w-full sm:h-[450px] lg:h-[550px]"
+          >
+            <TileLayer
+              attribution="&copy; OpenStreetMap contributors"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+
+            <Marker position={[latitude, longitude]}>
+              <Popup>
+                <strong>Elibu Home Decoraytes</strong>
+                <br />
+                Visit our floral shop 🌿
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
       </div>
     </section>
   );
 }
-
-
-
-
-
-
-
-    
