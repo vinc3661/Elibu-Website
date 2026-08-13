@@ -26,7 +26,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-emerald-600">
-              About Elibu
+              About Elibu Home Decorates
             </p>
 
             <h2 className="mt-3 text-4xl font-bold text-emerald-950 sm:text-5xl">
