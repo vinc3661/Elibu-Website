@@ -8,7 +8,7 @@ export default function Location() {
   useEffect(() => {
     const fetchLocation = async () => {
       try {
-        // Replace with actual API endpoint (this is just a placeholder)
+        
         const response = await fetch("https://api.example.com/location");
         if (!response.ok) {
           throw new Error("Failed to load location");
