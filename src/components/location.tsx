@@ -1,4 +1,11 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  LayersControl,
+} from "react-leaflet";
+
 import "leaflet/dist/leaflet.css";
 import { motion } from "framer-motion";
 
@@ -13,7 +20,7 @@ export default function Location() {
     >
       <div className="mx-auto max-w-7xl">
 
-        {/* Heading */}
+    
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +43,7 @@ export default function Location() {
           </p>
         </motion.div>
 
-        {/* Map */}
+        
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.98 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -46,14 +53,34 @@ export default function Location() {
         >
           <MapContainer
             center={[latitude, longitude]}
-            zoom={16}
+            zoom={18}
             className="h-[350px] w-full sm:h-[450px] lg:h-[550px]"
           >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution="&copy; OpenStreetMap contributors"
-            />
+            
+            <LayersControl position="topright">
 
+              
+              <LayersControl.BaseLayer
+                checked
+                name="Street Map"
+              >
+                <TileLayer
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution="&copy; OpenStreetMap contributors"
+                />
+              </LayersControl.BaseLayer>
+
+              
+              <LayersControl.BaseLayer name="Satellite">
+                <TileLayer
+                  url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                  attribution="Tiles &copy; Esri"
+                />
+              </LayersControl.BaseLayer>
+
+            </LayersControl>
+
+            
             <Marker position={[latitude, longitude]}>
               <Popup>
                 <strong>Elibu Home Decoraytes</strong>
@@ -62,18 +89,30 @@ export default function Location() {
               </Popup>
             </Marker>
           </MapContainer>
+        <a
+  href={`https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-emerald-700 px-6 py-4 font-semibold text-white transition hover:bg-emerald-800 sm:w-auto"
+>
+  Get Directions
+</a>
+        
         </motion.div>
 
-        {/* Bottom paragraph */}
+        
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{
+            duration: 0.7,
+            delay: 0.2,
+          }}
           viewport={{ once: true }}
           className="mx-auto mt-6 max-w-2xl text-center text-gray-600"
         >
-          We look forward to welcoming you. Use the map above to find our
-          exact location.
+          We look forward to welcoming you. Use the map above to
+          find our exact location.
         </motion.p>
 
       </div>
