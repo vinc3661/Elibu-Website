@@ -162,7 +162,7 @@ export default function Hero() {
             </motion.a>
 
             <motion.a
-              href="#contact"
+              href="https://wa.me/254724894374"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="w-full rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white/20 sm:w-auto"
