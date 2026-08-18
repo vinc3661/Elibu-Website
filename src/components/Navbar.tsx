@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="absolute inset-x-0 top-0 z-50">
-      <div className="flex justify-center gap-8 py-5 text-white">
+      <div className="flex justify-center gap-2 sm:gap-4 md:gap-8 py-5 text-white">
         {links.map((link) => (
           <motion.a
             key={link}

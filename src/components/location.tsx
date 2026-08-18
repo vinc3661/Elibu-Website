@@ -43,7 +43,7 @@ export default function Location() {
           </p>
         </motion.div>
 
-        
+    
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.98 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -56,7 +56,6 @@ export default function Location() {
             zoom={18}
             className="h-[350px] w-full sm:h-[450px] lg:h-[550px]"
           >
-
             
             <LayersControl position="topright">
 
@@ -78,7 +77,7 @@ export default function Location() {
 
             </LayersControl>
 
-            
+    
             <Marker position={[latitude, longitude]}>
               <Popup>
                 <strong>Elibu Home Decoraytes</strong>
@@ -86,7 +85,6 @@ export default function Location() {
                 Visit us here!
               </Popup>
             </Marker>
-
           </MapContainer>
         </motion.div>
 
