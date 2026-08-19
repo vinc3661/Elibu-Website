@@ -25,7 +25,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm font-medium uppercase tracking-[0.3em] text-emerald-600">
+            <p className="text-sm font-bold uppercase tracking-[0.3em] text-emerald-600">
               About Elibu Home Decorates
             </p>
 
