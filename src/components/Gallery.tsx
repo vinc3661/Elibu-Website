@@ -1,7 +1,7 @@
 import {motion} from "framer-motion";
 
 const images = import.meta.glob(
-"../assets/Gallery/*.{jpg,jpeg,npg,webp}",
+"../assets/Gallery/optimized/*.{jpg,jpeg,png,webp}",
 {
 eager:true,
 query:"?url",
